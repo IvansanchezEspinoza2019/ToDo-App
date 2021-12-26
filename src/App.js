@@ -6,9 +6,9 @@ import { TodoAddItem } from './TodoAddItem';
 import { TodoSearch } from './TodoSearch';
 
 const TODOs = [
-  {text: "Primera item", completed: false},
-  {text: "Segundo item", completed: false},
-  {text: "Tercer item", completed: false},
+  {text: "Primera item", completed: true},
+  {text: "Segundo item ddddddddddddddddddddddddsdsdsdhh", completed: false},
+  {text: "Tercer item", completed: true},
 ]
 
 function App() {
@@ -24,7 +24,10 @@ function App() {
       {/*Lista de Todos*/}
       <TodoList>
           {TODOs.map(todo => (
-            <TodoItem key={todo.text} text={todo.text}/>
+            <TodoItem 
+            key={todo.text} 
+            text={todo.text}
+            completed={todo.completed}/>
           ))}
       </TodoList>
 

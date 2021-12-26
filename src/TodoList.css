@@ -1,0 +1,13 @@
+ul {
+  margin: 0;
+  padding: 5px 0;
+  list-style: none;
+}
+
+section {
+  width: 90%;
+  max-width: 650px;
+  text-align: center;
+  margin: auto;
+  margin-top: 55px;
+}
