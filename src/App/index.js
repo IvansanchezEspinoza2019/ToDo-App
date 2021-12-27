@@ -1,9 +1,6 @@
 import react, {useState} from 'react'
-import {TodoCounter} from './TodoCounter';
-import { TodoList } from './TodoList';
-import {TodoItem} from './TodoItem'
-import { TodoAddItem } from './TodoAddItem';
-import { TodoSearch } from './TodoSearch';
+import './AppUI'
+import { AppUI } from './AppUI';
 
 // hardcoded todo's list
 const defaultTODOs = [
@@ -44,38 +41,18 @@ function App() {
   }
 
   return (
-    <react.Fragment>
-      {/*Contador de tareas completadas de la lista de TODOs*/ }
-      {<TodoCounter
-        total={totalTodos}
-        completed={completedTodos}
-      />}
-
-
-      {/*Barra de busqueda*/}
-      <TodoSearch
+      <AppUI
         search={search}
         setSearch={setSearch}
+        completedTodos={completedTodos}
+        totalTodos= {totalTodos}
+        searchedTodos={searchedTodos}
+        completeTodo={completeTodo}
+        deleteTodo={deleteTodo}
+
       />
-
-      {/*Lista de Todos*/}
-      <TodoList>
-          {searchedTodos.map(todo => (
-            <TodoItem 
-            key={todo.text} 
-            text={todo.text}
-            onComplete={()=>completeTodo(todo.text)}
-            onDelete={()=>{deleteTodo(todo.text)}}
-            completed={todo.completed}/>
-          
-          ))}
-      </TodoList>
-
-      {/*Agrega una nueva Todo*/}
-      <TodoAddItem/>
-
-    </react.Fragment>
-  );
+      
+      );
 }
 
 export default App;
