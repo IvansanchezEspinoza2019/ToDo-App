@@ -27,6 +27,22 @@ function App() {
     return todo.text.toLowerCase().includes(lowerSearch)
   })
 
+  // complete todo
+  const completeTodo = (text) =>{
+    const index = todos.findIndex(todo => todo.text===text);
+    const newtodos = [...todos]
+    newtodos[index].completed=true
+    setTodos(newtodos)
+  }
+
+  // delete todo
+  const deleteTodo = (text) =>{
+    const index = todos.findIndex(todo => todo.text===text);
+    const newtodos = [...todos]
+    newtodos.splice(index,1)
+    setTodos(newtodos)
+  }
+
   return (
     <react.Fragment>
       {/*Contador de tareas completadas de la lista de TODOs*/ }
@@ -34,7 +50,7 @@ function App() {
         total={totalTodos}
         completed={completedTodos}
       />}
-  <input></input>
+
 
       {/*Barra de busqueda*/}
       <TodoSearch
@@ -48,7 +64,10 @@ function App() {
             <TodoItem 
             key={todo.text} 
             text={todo.text}
+            onComplete={()=>completeTodo(todo.text)}
+            onDelete={()=>{deleteTodo(todo.text)}}
             completed={todo.completed}/>
+          
           ))}
       </TodoList>
 
