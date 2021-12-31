@@ -1,14 +1,14 @@
 import React from "react";
 import './TodoButton.css';
 
-function TodoAddItem(){
+function TodoAddItem(props){
 
-    const onCLickButton = (msg) => {
-        alert(msg)
+    const onCLickButton = () => {
+        props.setOpenModal(prevStat => !prevStat)
     }
     return(
         <button className="TodoAddItem"
-            onClick={()=> onCLickButton("Hola")}
+            onClick={()=> onCLickButton()}
         >+</button>
     )
 }
