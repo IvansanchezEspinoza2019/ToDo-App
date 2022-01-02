@@ -31,7 +31,7 @@ function TodoForm(){
             <textarea
             value={newTodoValue}
             onChange={onChange}
-            placeholder='ej. make a shopping list'/>
+            placeholder='ej. make a shopping list item'/>
     
         <div className='TodoForm-buttonContainer'>
             <button 
